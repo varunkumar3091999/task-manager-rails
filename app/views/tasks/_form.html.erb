@@ -1,0 +1,36 @@
+<%= form_for(@task, local: true, :html => { :multipart => true, :method => method }) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-sm-8 align-items-center">
+
+    <div class="form-group row">
+      <%= form.label :title, class: "col-xl-4 col-form-label"%>
+      <div class="col-sm-5">
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
+      <div class="actions text-right col-sm-3">
+        <%= form.submit class: "btn btn-primary"%>
+    </div>
+    </div>
+
+    <div class="form-group row">
+      <%= form.label :description, class: "col-xl-4 col-form-label" %>
+      <div class="col-sm-5">
+        <%= form.text_field :description, class: "form-control" %>
+      </div>
+    </div>
+
+
+  </div>
+<% end %>
+

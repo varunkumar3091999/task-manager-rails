@@ -1,0 +1,7 @@
+<h3>New Task</h3>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', task: @task, method: :post%>
+    <%= link_to 'Back', tasks_path %>
+  </div>
+</div>
