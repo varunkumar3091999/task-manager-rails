@@ -31,7 +31,8 @@
               <% end%>
               <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
               <%= link_to 'Show', task , class: "btn btn-info"%>
-              <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+              <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger destroy_task",  :remote => true%>
+
             </div>
             </td>
           </tr>

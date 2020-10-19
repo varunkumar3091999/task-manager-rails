@@ -6,6 +6,9 @@
     <h5 class="card-title"><%= @task.title %></h5>
     <p class="card-text"><%= @task.description %></p>
     <p><%= @task.status %></p>
+    <% if @task.image %>
+      <% image_tag @task.image.attachment.url, class: 'img-rounded' %>
+    <% end %>
     <% if @task.parent_id %>
       <p>
         <strong>Parent:</strong>

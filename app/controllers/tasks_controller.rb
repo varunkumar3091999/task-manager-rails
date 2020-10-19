@@ -96,7 +96,11 @@ class TasksController < ApplicationController
     @task.destroy
     respond_to do |format|
       if @task.parent_id.present?
-        format.html {redirect_to @task.parent}
+        respond_to do |format|
+          format.html {redirect_to @task.parent}
+          format.json { head :no_content}
+          format.js {render :layout => false}
+        end
       else
         format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
         format.json { head :no_content }
@@ -112,6 +116,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :description, :status, :assignee, :assigner, :parent_id)
+      params.require(:task).permit(:title, :description, :status, :assignee, :assigner, :parent_id, image_attributes: [:id, :attachment])
     end
 end

@@ -2,6 +2,8 @@ class Task < ApplicationRecord
   # Relationships
   belongs_to :user
   has_many :sub_tasks, :class_name => "Task", :foreign_key => :parent_id
+  has_one :image, :foreign_key =>'id'
+  accepts_nested_attributes_for :image
 
   # Validations
   validates :title, :description, :status, presence: true
