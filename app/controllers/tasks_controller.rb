@@ -11,6 +11,11 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @sub_tasks = @task.sub_tasks
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf { render template: 'tasks/task.pdf', pdf: 'task'}
+    end
   end
 
   # GET /tasks/new

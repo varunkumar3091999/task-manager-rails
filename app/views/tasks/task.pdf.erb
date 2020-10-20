@@ -1,0 +1,14 @@
+<h3>Task <%=@task.id%></h3>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Title: <%= @task.title %></h5>
+    <p class="card-text">Description: <%= @task.description %></p>
+    <p>Status: <%= @task.status %></p>
+    <% if @task.parent_id %>
+      <p>
+        <strong>Parent:</strong>
+        <%= @task.parent_id %>
+      </p>
+    <% end %>
+  </div>
+</div>
