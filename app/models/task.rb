@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   # Relationships
   belongs_to :user
   has_many :sub_tasks, :class_name => "Task", :foreign_key => :parent_id
-  has_one :image, :class_name => "Image", :foreign_key => 'task_id', dependent: :destroy # if task is deleted associated image is also deleted (dependent: :destroy)
+  has_one :image
   accepts_nested_attributes_for :image, allow_destroy: true
 
   # Validations

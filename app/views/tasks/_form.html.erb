@@ -16,7 +16,7 @@
     <div class="form-group row">
       <%= form.label :title, class: "col-xl-4 col-form-label"%>
       <div class="col-sm-5">
-        <%= form.text_field :title, class: "form-control" %>
+        <%= form.text_field :title, class: "form-control", required: true %>
       </div>
       <div class="actions text-right col-sm-3">
         <%= form.submit class: "btn btn-primary"%>
@@ -26,11 +26,12 @@
     <div class="form-group row">
       <%= form.label :description, class: "col-xl-4 col-form-label" %>
       <div class="col-sm-5">
-        <%= form.text_field :description, class: "form-control" %>
+        <%= form.text_field :description, class: "form-control" , required: true%>
       </div>
     </div>
 
-    <%= form.fields_for :images, Image.new do |f|  %>
+    <%= form.fields_for :image, Image.new do |f|  %>
+      <%= f.label :attachment %>
       <%= f.file_field :attachment %>
     <% end %>
   </div>
