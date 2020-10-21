@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <%= form.fields_for :images do |f|  %>
+    <%= form.fields_for :images, Image.new do |f|  %>
       <%= f.file_field :attachment %>
     <% end %>
   </div>
