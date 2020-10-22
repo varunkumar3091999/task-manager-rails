@@ -7,6 +7,6 @@ class ImagesController < ApplicationController
 
   private
   def image_params
-    params.require(:image).permit(:id, :attachment, :task_id)
+    params.require(:image).permit(:id, :attachment)
   end
 end

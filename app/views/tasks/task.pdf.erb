@@ -5,10 +5,15 @@
     <p class="card-text">Description: <%= @task.description %></p>
     <p>Status: <%= @task.status %></p>
     <% if @task.parent_id %>
+    t
       <p>
         <strong>Parent:</strong>
         <%= @task.parent_id %>
       </p>
+    <% end %>
+
+    <% if @task.image%>
+      <%=wicked_pdf_image_tag @task.image.attachment_url , style: 'height:15vw;width:25vw;margin-bottom:20px'%>
     <% end %>
   </div>
 </div>

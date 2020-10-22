@@ -5,7 +5,8 @@
   <div class="card-body">
     <h5 class="card-title"><%= @task.title %></h5>
     <p class="card-text"><%= @task.description %></p>
-    <p><%= @task.status %></p>
+    <p>Status: <%= @task.status %></p>
+    <p>Assignee: <%= @task.assignee %></p>
     <% if @task.image%>
       <%=image_tag @task.image.attachment_url , style: 'height:15vw;width:25vw;margin-bottom:20px'%>
     <% end %>
@@ -16,7 +17,7 @@
       </p>
     <% end %>
     <div class="card-text">
-      <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-primary" %>
+      <%= link_to 'Edit', edit_task_url(@task), class: "btn btn-primary" %>
       <%= link_to 'Back', tasks_path, class: "btn btn-info" %>
       <%= link_to 'Generate PDF', "#{task_path}.pdf", class: "btn btn-outline-info" %>
 
@@ -53,7 +54,7 @@
                 <% if task.status == "pending" %>
                   <%= link_to 'Mark as done', mark_as_done_task_path(task), method: :post , class: "btn btn-success"%>
                 <% end%>
-                <%= link_to 'Edit', edit_task_path(task), class: "btn btn-info ml-2" %><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2" %>
+                <%= link_to 'Edit', edit_task_url(task), class: "btn btn-info ml-2" %><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2" %>
               </div>
             </td>
           </tr>

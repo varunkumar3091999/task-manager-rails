@@ -1,0 +1,52 @@
+<h3>Task</h3>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.title %></h5>
+    <p class="card-text"><%= @task.description %></p>
+    <p><%= @task.status %></p>
+    <% if @task.image%>
+      <%=image_tag @task.image.attachment_url , style: 'height:15vw;width:25vw;margin-bottom:20px'%>
+    <% end %>
+    <% if @task.parent_id %>
+      <p>
+        <strong>Parent:</strong>
+        <%= @task.parent_id %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+
+<% if !@task.parent_id and @task.sub_tasks.count > 0 %>
+<div class="card mt-3">
+  <div class="card-body">
+    <h5>Sub tasks</h5>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scopr="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col" class="text-right">action</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @sub_tasks.each do |task| %>
+          <tr>
+            <td><%= task.title %></td>
+            <td><%= task.description %></td>
+            <td><%= task.status %></td>
+            <!--<td><%= link_to 'Show', task, class: "btn" %></td>-->
+            <td>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% end %>

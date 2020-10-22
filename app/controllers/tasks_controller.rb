@@ -67,6 +67,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        NotificationJobJob.perform_now(@task)
         format.json { render :show, status: :created, location: @task }
       else
         format.html { render :new }
@@ -99,6 +100,9 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task.destroy
+    @task.sub_tasks.each do |sub_task|
+    sub_tasks.destroy
+    end
     respond_to do |format|
       if @task.parent_id.present?
         respond_to do |format|

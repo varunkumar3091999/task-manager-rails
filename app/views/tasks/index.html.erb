@@ -29,7 +29,7 @@
                 <% if task.status == "pending" %>
                   <%= link_to 'Mark as done', mark_as_done_task_path(task), method: :post , class: "btn btn-success"%>
                 <% end%>
-                <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary" %>
+                <%= link_to 'Edit', edit_task_url(task), class: "btn btn-primary" %>
                 <%= link_to 'Show', task , class: "btn btn-info"%>
                 <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger destroy_task", :remote => true%>
               </div>
